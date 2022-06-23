@@ -1,5 +1,5 @@
 # add this script to Mikrotik
-# setup System Scheduler, and sets your backup schedulu (for me, it's every week)
+# setup System Scheduler, and sets your backup schedule (for me, it's every week)
 
 :local hour [:pick [/system clock get time] 0 2];
 :local minute [:pick [/system clock get time] 3 5];
