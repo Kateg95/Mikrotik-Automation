@@ -4,7 +4,7 @@
 # edit RDP to your existing NAT forwarding
 
 :local newgw [/ip address get [find interface="pppoe-ISP"] address];
-:local existgw [/ip firewall nat get [find comment="RDP"] dst-address];
-:if ($newgw!= $existgw) do={
+:local existinggw [/ip firewall nat get [find comment="RDP"] dst-address];
+:if ($newgw!= $existinggw) do={
       /ip firewall nat set [find comment="RDP"] dst-address=$newgw;
 }
