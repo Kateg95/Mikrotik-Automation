@@ -2,9 +2,10 @@
 # for Mikrotik with dynamic IP Public
 # edit pppoe-ISP to your interface
 # edit RDP to your existing NAT forwarding
+# Yes?
 
-:local newgw [/ip address get [find interface="pppoe-ISP"] address];
+:local gwbaru [/ip address get [find interface="pppoe-ISP"] address];
 :local existinggw [/ip firewall nat get [find comment="RDP"] dst-address];
-:if ($newgw!= $existinggw) do={
-      /ip firewall nat set [find comment="RDP"] dst-address=$newgw;
+:if ($gwbaru!= $existinggw) do={
+      /ip firewall nat set [find comment="RDP"] dst-address=$gwbaru;
 }
